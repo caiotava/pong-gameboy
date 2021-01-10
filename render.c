@@ -1,4 +1,4 @@
-#include<gb/gb.h>
+#include <gb/gb.h>
 #include "render.h"
 #include "rect.h"
 #include "sprites.h"
