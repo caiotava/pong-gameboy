@@ -11,6 +11,8 @@
 *.elf
 *.map
 *.lst
+*.asm
+*.sym
 
 # Libraries
 *.lib
