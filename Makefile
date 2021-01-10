@@ -1,13 +1,13 @@
-CC		= lcc
-CFLAGS		= -Wa-l -Wl-m -Wl-j
-LDFLAGS		=
-EMULATOR 	= VisualBoyAdvance
-EMULATOR_FLAGS	=
-BIN		=pong.gb
+CC = lcc
+CFLAGS = -Wa-l -Wl-m -Wl-j
+LDFLAGS =
+EMULATOR = bgb
+EMULATOR_FLAGS =
+BIN = pong.gb
 
-all:	$(BIN)
+all: $(BIN)
 
-run:	$(BIN)
+run: $(BIN)
 	$(EMULATOR) $(EMULATOR_FLAGS) $(BIN)
 
 $(BIN):	pong.o sprites.o render.o engine.o collision.o
@@ -29,4 +29,4 @@ collision.o: collision.c
 	$(CC) $(CFLAGS) -c -o collision.o collision.c
 
 clean:
-	rm -f *.o *.map *.gb *.lst
+	rm -f *.o *.map *.gb *.lst *.asm *.sym
