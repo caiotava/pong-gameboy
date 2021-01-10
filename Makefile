@@ -10,7 +10,7 @@ all: $(BIN)
 run: $(BIN)
 	$(EMULATOR) $(EMULATOR_FLAGS) $(BIN)
 
-$(BIN):	pong.o sprites.o render.o engine.o collision.o
+$(BIN):	pong.o sprites.o render.o game.o collision.o
 	$(CC) $(LDFLAGS) -o $(BIN) $^
 
 sprites.o: sprites.c
@@ -22,8 +22,8 @@ pong.o: pong.c
 render.o: render.c
 	$(CC) $(CFLAGS) -c -o render.o render.c
 
-engine.o: engine.c
-	$(CC) $(CFLAGS) -c -o engine.o engine.c
+game.o: game.c
+	$(CC) $(CFLAGS) -c -o game.o game.c
 
 collision.o: collision.c
 	$(CC) $(CFLAGS) -c -o collision.o collision.c

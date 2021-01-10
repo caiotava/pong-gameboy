@@ -1,6 +1,6 @@
-#ifndef __ENGINE_HEADER__
+#ifndef __GAME_HEADER__
 
-#define __ENGINE_HEADER__
+#define __GAME_HEADER__
 
 #include "rect.h"
 #include "render.h"
