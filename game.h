@@ -2,12 +2,22 @@
 
 #define __GAME_HEADER__
 
-#include "rect.h"
-#include "render.h"
+#include "vector2d.h"
 
-extern Rect paddle_user;
-extern Rect paddle_computer;
-extern Ball ball;
+typedef struct {
+	Vector2D size;
+	Vector2D position;
+	Vector2D speed;
+} Ball;
+
+typedef struct {
+    Vector2D position;
+    Vector2D size;
+} Paddle;
+
+Paddle paddle_user;
+Paddle paddle_computer;
+Ball ball;
 
 void initGame();
 void runGame();

@@ -1,4 +1,3 @@
-#include<gb/gb.h>
 #include "engine.h"
 
 void main()

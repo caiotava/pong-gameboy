@@ -2,7 +2,7 @@
 #include <gb/gb.h>
 #include <gb/console.h>
 #include "collision.h"
-#include "rect.h"
+#include "vector2d.h"
 #include "render.h"
 #include "engine.h"
 

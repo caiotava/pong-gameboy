@@ -1,6 +1,6 @@
 #ifndef __RENDER_HEADER__
 
-#include "rect.h"
+#include "vector2d.h"
 
 #define __RENDER_HEADER__
 
@@ -20,7 +20,6 @@ int clearBackground();
 int disableDisplay();
 int enableDisplay();
 
-void drawPaddleUser( Rect *paddle );
-void drawPaddleComputer( Rect *paddle );
-void drawBall( Ball *ball );
+void drawPaddle(Vector2D position);
+void drawBall(Vector2D position);
 #endif

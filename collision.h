@@ -2,7 +2,7 @@
 
 #define __COLISSION_HEADER__
 
-#include "rect.h"
+#include "vector2d.h"
 
 enum type_collision_wall {
 	no_wall_collision = 0,

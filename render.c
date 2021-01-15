@@ -1,6 +1,6 @@
 #include <gb/gb.h>
 #include "render.h"
-#include "rect.h"
+#include "vector2d.h"
 #include "sprites.h"
 
 const short int PADDLE_SPRITE_TOP = 0;
@@ -81,33 +81,17 @@ int loadSprites()
 	return 1;
 }
 
-void drawPaddleUser( Rect *paddle )
+void drawPaddle(Vector2D position)
 {
-	int positionX = paddle->position.x;
-	int topPositionY = paddle->position.y;
-	int middlePositionY = topPositionY + TILE_HEIGHT;
-	int bottomPositionY = middlePositionY + TILE_HEIGHT;
+	int middleY = position.y + TILE_HEIGHT;
+	int bottomY = middleY + TILE_HEIGHT;
 
-	move_sprite(PADDLE_USER_TILE_TOP, positionX, topPositionY );
-	move_sprite(PADDLE_USER_TILE_MIDDLE, positionX, middlePositionY );
-	move_sprite(PADDLE_USER_TILE_BOTTOM, positionX, bottomPositionY );
+	move_sprite(PADDLE_USER_TILE_TOP, position.x, position.y);
+	move_sprite(PADDLE_USER_TILE_MIDDLE, positionX, middleY);
+	move_sprite(PADDLE_USER_TILE_BOTTOM, positionX, bottomY);
 }
 
-void drawPaddleComputer( Rect *paddle ) {
-	int positionX = paddle->position.x;
-	int topPositionY = paddle->position.y;
-	int middlePositionY = topPositionY + TILE_HEIGHT;
-	int bottomPositionY = middlePositionY + TILE_HEIGHT;
-
-	move_sprite(PADDLE_COMPUTER_TILE_TOP, positionX, topPositionY );
-	move_sprite(PADDLE_COMPUTER_TILE_MIDDLE, positionX, middlePositionY );
-	move_sprite(PADDLE_COMPUTER_TILE_BOTTOM, positionX, bottomPositionY );
-}
-
-void drawBall( Ball *ball )
+void drawBall(Vector2D position)
 {
-	int positionX = ball->rect.position.x;
-	int positionY = ball->rect.position.y;
-
-	move_sprite(BALL_TILE, positionX, positionY );
+	move_sprite(BALL_TILE, position.x, position.y);
 }

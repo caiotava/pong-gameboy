@@ -1,18 +1,16 @@
-#include<gb/gb.h>
+#include <gb/gb.h>
 #include "engine.h"
-#include "rect.h"
+#include "vector2d.h"
 #include "render.h"
 #include "collision.h"
 
-Rect paddle_user;
-Rect paddle_computer;
+Paddle paddle_user;
+Paddle paddle_computer;
 Ball ball;
 
 int isRunningGame = FALSE; 
 int isPausedGame = FALSE;
 
-void initPaddles();
-void initBall();
 void handleUserInput();
 void handleBallMoving();
 void checkCollision();
@@ -49,12 +47,12 @@ void initPaddles()
 
 void initBall()
 {
-	ball.rect.position.x = (int) SCREEN_WIDTH / 2;
-	ball.rect.position.y = (int) SCREEN_HEIGHT / 2;
-	ball.rect.height = 8;
-	ball.rect.width = 6;
-	ball.speedX = -2;
-	ball.speedY = 1;
+	ball.position.x = (int) SCREEN_WIDTH / 2;
+	ball.position.y = (int) SCREEN_HEIGHT / 2;
+	ball.size.y = 8;
+	ball.size.x = 6;
+	ball.speed.x = -2;
+	ball.speed.y = 1;
 }
 
 void runGame()
