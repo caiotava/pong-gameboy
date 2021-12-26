@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <gb/gb.h>
-#include <gb/console.h>
+#include <gbdk/console.h>
 #include "collision.h"
 #include "rect.h"
 #include "render.h"
@@ -28,7 +28,7 @@ short int hasCollisionWall(Rect *rect)
 	}
 	else if (isCollisionRightWall) {
 		typeWallCollision = right_wall_collision;
-		if ( rect == &ball ) {
+		if ( rect->position.x == ball.rect.position.x ) {
 			gotoxy(14, 14);
 			printf("Colisao Y - %d", rect->position.x + rect->width );
 		}
@@ -66,4 +66,6 @@ short int hasCollisionBallPaddle(Ball *ball, Rect *paddle)
 	else if (centerBall == centerPaddle) {
 		return middle_paddle_collision;
 	}
+
+    return 0;
 }
