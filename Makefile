@@ -29,4 +29,4 @@ collision.o: collision.c
 	$(CC) $(CFLAGS) -c -o collision.o collision.c
 
 clean:
-	rm -f *.o *.map *.gb *.lst *.asm *.sym
+	rm -f *.o *.map *.gb *.lst *.asm *.sym *.sav *ihx

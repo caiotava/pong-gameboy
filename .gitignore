@@ -17,6 +17,8 @@
 # Libraries
 *.lib
 *.a
+*.sav
+*.ihx
 
 # Shared objects (inc. Windows DLLs)
 *.dll
