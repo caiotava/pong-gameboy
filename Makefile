@@ -30,3 +30,6 @@ collision.o: collision.c
 
 clean:
 	rm -f *.o *.map *.gb *.lst *.asm *.sym *.sav *ihx
+
+compile-docker:
+	docker run -v $(PWD):/app -w /app caiotava/gameboy-dev make
