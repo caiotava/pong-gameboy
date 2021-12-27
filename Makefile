@@ -10,14 +10,14 @@ all: $(BIN)
 run: $(BIN)
 	$(EMULATOR) $(EMULATOR_FLAGS) $(BIN)
 
-$(BIN):	pong.o sprites.o render.o engine.o collision.o
+$(BIN):	main.o sprites.o render.o engine.o collision.o
 	$(CC) $(LDFLAGS) -o $(BIN) $^
 
 sprites.o: sprites.c
 	$(CC) $(CFLAGS) -c -o sprites.o sprites.c
 
-pong.o: pong.c
-	$(CC) $(CFLAGS) -c -o pong.o pong.c
+main.o: main.c
+	$(CC) $(CFLAGS) -c -o main.o main.c
 
 render.o: render.c
 	$(CC) $(CFLAGS) -c -o render.o render.c
