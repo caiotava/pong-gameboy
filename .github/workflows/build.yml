@@ -2,9 +2,10 @@ name: build
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
+    tags:
+      - v*
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -16,7 +17,10 @@ jobs:
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     runs-on: ubuntu-latest
-    container: caiotava/gameboy-dev
+    container:
+      image: caiotava/gameboy-dev
+      volumes:
+        - ${{github.workspace}}:${{github.workspace}}
 
     steps:
       - uses: actions/checkout@v3
@@ -32,24 +36,8 @@ jobs:
           cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
           echo "artifactPath=build/pong.gb" >> $GITHUB_ENV
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          # Artifact name
-          name: pong
-          path: |
-            ${{github.workspace}}/build/pong.gb
-            ./**/*.gb
-            ./build/*.gb
-            ${{ env.artifactPath }}
+          files: ${{github.workspace}}/build/pong.gb
